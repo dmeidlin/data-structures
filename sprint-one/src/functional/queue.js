@@ -7,24 +7,24 @@ var Queue = function () {
   var someInstance = {};
 
   // Use an object with numeric keys to store values
-  var storage = {};
-  storage.back = 1;
-  storage.front = 1;
+  someInstance.storage = {};
+  someInstance.storage.back = 1;
+  someInstance.storage.front = 1;
 
   // Implement the methods below
   someInstance.enqueue = function (value) {
-    storage[storage.back++] = value;
+    someInstance.storage[someInstance.storage.back++] = value;
   };
 
   someInstance.dequeue = function () {
-    var firstValueIn = storage[storage.front++];
+    var firstValueIn = someInstance.storage[someInstance.storage.front++];
 
-    delete storage[storage.front - 1];
+    delete someInstance.storage[someInstance.storage.front - 1];
     return firstValueIn;
   };
 
   someInstance.size = function () {
-    return Object.keys(storage).length - 2;
+    return Object.keys(someInstance.storage).length - 2;
   };
 
   return someInstance;
